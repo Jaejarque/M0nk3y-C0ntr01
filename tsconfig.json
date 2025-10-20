@@ -8,6 +8,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
   }
 }
