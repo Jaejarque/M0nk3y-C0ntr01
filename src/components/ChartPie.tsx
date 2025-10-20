@@ -24,7 +24,6 @@ export default function ChartPie() {
         colors={{ datum: "data.color" }}
         arcLabelsTextColor={{ from: "color", modifiers: [["darker", 2]] }}
         theme={{
-          textColor: "#e5e7eb",
           tooltip: { container: { background: "#18181b", color: "#fff" } },
         }}
         layers={[

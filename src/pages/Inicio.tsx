@@ -1,26 +1,35 @@
-import { format, addMonths } from "date-fns"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, LogOut, User } from "lucide-react"
-import ChartPie from "@/components/ChartPie"
-import ButtonAdd from "@/components/ButtonAdd"
-import ButtonRem from "@/components/ButtonRem"
-import Historial from "@/components/Historial"
+import { format, addMonths } from "date-fns";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, LogOut, User } from "lucide-react";
+import ChartPie from "@/components/ChartPie";
+import ButtonAdd from "@/components/ButtonAdd";
+import ButtonRem from "@/components/ButtonRem";
+import Historial from "@/components/Historial";
+import TotalIngresado from "@/components/TotalIngresado";
+import TotalEgresado from "@/components/TotalEgresado";
+import CantIngresado from "@/components/CantIngresado";
+import CantEgresado from "@/components/CantEgresado";
+import ChartBar from "@/components/ChartBar";
 
 function Inicio() {
-  const [fechaActual, setFechaActual] = useState(format(new Date(), "yyyy-MMMM"))
+  const [fechaActual, setFechaActual] = useState(
+    format(new Date(), "yyyy-MMMM")
+  );
 
   const handleChangeMonth = (offset: number) => {
-    const nuevaFecha = addMonths(new Date(fechaActual), offset)
-    setFechaActual(format(nuevaFecha, "yyyy-MMMM"))
-  }
+    const nuevaFecha = addMonths(new Date(fechaActual), offset);
+    setFechaActual(format(nuevaFecha, "yyyy-MMMM"));
+  };
 
   return (
     <main className="w-full min-h-screen bg-stone-950 flex flex-col">
       <section className="w-[95%] md:w-3/4 mx-auto flex flex-col h-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center p-4 gap-4">
-          <h1 className="text-stone-100 text-2xl font-semibold">M0nk3yC0ntr01</h1>
+          <h1 className="text-stone-100 text-2xl font-semibold">
+            M0nk3yC0ntr01
+          </h1>
 
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
@@ -80,9 +89,22 @@ function Inicio() {
             </div>
           </div>
         </div>
+        <div className="flex flex-col lg:flex-row gap-4 w-full justify-between pb-6">
+          {/** Total ingresado */}
+          <TotalIngresado />
+          {/** Total egresado */}
+          <TotalEgresado />
+          {/** cantidad de veces ingresado */}
+          <CantIngresado />
+          {/** cantidad de veces ingresado */}
+          <CantEgresado />
+        </div>
+        <div className="flex flex-col lg:flex-row gap-4 w-full justify-between pb-6">
+          <ChartBar />
+        </div>
       </section>
     </main>
-  )
+  );
 }
 
-export default Inicio
+export default Inicio;
