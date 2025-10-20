@@ -11,6 +11,8 @@ import TotalEgresado from "@/components/TotalEgresado";
 import CantIngresado from "@/components/CantIngresado";
 import CantEgresado from "@/components/CantEgresado";
 import ChartBar from "@/components/ChartBar";
+import { ChartIngresos } from "@/components/ChartIngresos";
+import { ChartEgresos } from "@/components/ChartEgresos";
 
 function Inicio() {
   const [fechaActual, setFechaActual] = useState(
@@ -101,6 +103,16 @@ function Inicio() {
         </div>
         <div className="flex flex-col lg:flex-row gap-4 w-full justify-between pb-6">
           <ChartBar />
+        </div>
+        <div className="flex flex-col lg:flex-row gap-4 w-full justify-between pb-6">
+          {/* Chart Mayores ingresos */}
+          <div className="flex-1 border border-zinc-700 rounded-2xl shadow-sm flex flex-col">
+            <ChartIngresos/>
+          </div>
+          {/* Chart Mayores gastos */}
+          <div className="flex-1 border border-zinc-700 rounded-2xl shadow-sm flex flex-col">
+            <ChartEgresos/>
+          </div>
         </div>
       </section>
     </main>
